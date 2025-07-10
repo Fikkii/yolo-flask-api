@@ -11,6 +11,11 @@ CORS(app)
 # Load YOLO model (make sure yolov8n.pt is in your folder or in cache)
 model = YOLO('yolov8n.pt')
 
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({ 'message': 'Welcome' })
+
+
 @app.route('/detect', methods=['POST'])
 def detect():
     try:
